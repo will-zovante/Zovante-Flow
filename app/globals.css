@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { background: #0c0d0f; color: #e8e6e1; }
+```
+4. Click **Commit changes**
+
+---
+
+**Step 3 — Upload `app/page.tsx`**
+1. Click **Add file → Upload files**
+2. Navigate into the `app/` folder first — type `app/` in the path at the top
+3. Upload your `page.tsx` file
+4. Click **Commit changes**
+
+---
+
+**Then go to Vercel → Deployments → click Redeploy** — it will work this time. ✅
+
+Your GitHub repo should look like this after:
+```
+Zovante-Flow/
+├── app/
+│   ├── page.tsx      ← was missing
+│   ├── layout.tsx    ← was missing
+│   └── globals.css   ← was missing
+├── package.json
+├── next.config.ts
+└── ...
