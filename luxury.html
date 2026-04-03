@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hartwell & Co — Prime London Residential Property</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Syne',sans-serif;background:#000;color:#FAF8F4;overflow-x:hidden;}
+:root{--a:#C9A84C;--a2:rgba(201,168,76,.13);--off:rgba(250,248,244,.5);--b:rgba(255,255,255,.07);--bg:rgba(201,168,76,.22);}
+body::after{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.6rem 3.5rem;display:flex;align-items:center;justify-content:space-between;transition:.5s;}
+nav.up{background:rgba(0,0,0,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--b);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;letter-spacing:.12em;color:#FAF8F4;}
+.logo span{color:var(--a);}
+.nl{display:flex;gap:2.5rem;}
+.nl a{font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--off);text-decoration:none;transition:color .25s;}
+.nl a:hover{color:#FAF8F4;}
+.btn{display:inline-flex;align-items:center;gap:.4em;font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.8rem;border:1px solid var(--bg);color:var(--a);background:var(--a2);transition:.3s;cursor:pointer;outline:none;}
+.btn:hover{background:var(--a);color:#000;transform:translateY(-1px);}
+.btn span{display:inline-block;transition:transform .2s;}
+.btn:hover span{transform:translateX(2px);}
+.btn.f{background:var(--a);color:#000;border-color:var(--a);}
+.btn.f:hover{background:#b8962e;}
+.hmb{display:none;background:none;border:1px solid var(--bg);color:var(--a);padding:.5rem .9rem;font-family:'Syne',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;}
+.mob{display:none;position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
+.mob.on{display:flex;}
+.mob a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;letter-spacing:.08em;color:#FAF8F4;text-decoration:none;transition:color .2s;}
+.mob a:hover{color:var(--a);}
+.mcl{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--off);font-size:1.4rem;cursor:pointer;}
+.glw{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 55% 45% at 50% 18%,rgba(201,168,76,.065),transparent 70%);transition:background 2.5s;}
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.hl{display:flex;flex-direction:column;justify-content:flex-end;padding:10rem 4rem 6rem;position:relative;z-index:2;}
+.hr{position:relative;border-left:1px solid var(--b);}
+.hr-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0c0a06,#120e08 50%,#0a0806);}
+.hr-grid{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(rgba(201,168,76,1) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,1) 1px,transparent 1px);background-size:50px 50px;}
+.pcard{position:relative;z-index:2;border:1px solid var(--bg);padding:2.75rem;background:rgba(255,255,255,.02);backdrop-filter:blur(20px);max-width:320px;width:85%;margin:auto;}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--a),transparent);}
+.pl{font-size:.58rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--a);margin-bottom:1.25rem;display:flex;align-items:center;gap:.6rem;}
+.pl::before{content:'';width:16px;height:1px;background:var(--a);}
+.pp{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:#FAF8F4;line-height:1;margin-bottom:.2rem;}
+.pa{font-size:.72rem;letter-spacing:.1em;color:var(--off);margin-bottom:1.25rem;}
+.pr{height:1px;background:var(--bg);margin-bottom:1.25rem;}
+.ps{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--off);line-height:2.1;}
+.tag{display:inline-flex;align-items:center;gap:.65rem;font-size:.6rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--a);margin-bottom:2rem;}
+.tag::before{content:'';width:20px;height:1px;background:var(--a);}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5.5vw,5rem);font-weight:300;line-height:1.05;color:#FAF8F4;}
+h1 em{font-style:italic;color:var(--a);}
+.sub{font-size:.88rem;font-weight:400;line-height:1.9;color:var(--off);max-width:400px;margin-top:1.75rem;}
+.ctas{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;}
+.hdiv{display:flex;align-items:center;gap:1rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--b);}
+.hdl{flex:1;height:1px;background:var(--bg);}
+.hdt{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--off);white-space:nowrap;}
+.sec{padding:7rem 3.5rem;position:relative;z-index:1;}
+.sep{border-top:1px solid var(--b);}
+.sl{font-size:.58rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--a);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;}
+.sl::before{content:'';width:18px;height:1px;background:var(--a);}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;letter-spacing:.01em;line-height:1.1;color:#FAF8F4;}
+h2 em{font-style:italic;color:var(--a);}
+.lst{display:flex;flex-direction:column;gap:1px;background:var(--b);margin-top:3.5rem;}
+.li{background:#000;display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:2rem;align-items:center;padding:1.75rem 2.5rem;transition:background .25s;cursor:default;}
+.li:hover{background:rgba(255,255,255,.02);}
+.ls{font-size:.56rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--a);border:1px solid var(--bg);padding:.18rem .5rem;display:inline-block;margin-bottom:.45rem;}
+.la{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:#FAF8F4;}
+.larea{font-size:.66rem;letter-spacing:.08em;color:var(--off);margin-top:.15rem;}
+.ld{font-size:.72rem;color:var(--off);letter-spacing:.06em;}
+.ld strong{display:block;font-size:.86rem;color:#FAF8F4;font-weight:500;margin-bottom:.12rem;}
+.lp{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;color:#FAF8F4;white-space:nowrap;}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:3.5rem;}
+.bc{background:rgba(255,255,255,.02);border:1px solid var(--b);backdrop-filter:blur(20px);padding:2.75rem;position:relative;overflow:hidden;transition:border-color .35s,background .35s;}
+.bc::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,.06),transparent 70%);opacity:0;transition:opacity .5s;}
+.bc:hover{border-color:var(--bg);background:rgba(255,255,255,.035);}
+.bc:hover::before{opacity:1;}
+.s4{grid-column:span 4;}.s5{grid-column:span 5;}.s6{grid-column:span 6;}.s7{grid-column:span 7;}.s3{grid-column:span 3;}
+.brom{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:rgba(201,168,76,.18);line-height:1;margin-bottom:1.25rem;}
+.bt{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:#FAF8F4;margin-bottom:.7rem;}
+.bb{font-size:.82rem;line-height:1.8;color:var(--off);}
+.bnum{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,4.5rem);font-weight:300;color:var(--a);line-height:1;margin-bottom:.4rem;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b);margin-top:3.5rem;}
+.st{background:#000;padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background .3s;}
+.st::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--a),transparent);transform:scaleX(0);transition:transform .5s;}
+.st:hover{background:rgba(255,255,255,.018);}
+.st:hover::after{transform:scaleX(1);}
+.si{font-size:.56rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--off);margin-bottom:1.75rem;}
+.sti{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:#FAF8F4;margin-bottom:.7rem;}
+.stb{font-size:.82rem;line-height:1.8;color:var(--off);}
+#testimonial{background:rgba(201,168,76,.025);border-top:1px solid var(--b);border-bottom:1px solid var(--b);}
+.tq{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2.4rem);font-weight:300;font-style:italic;line-height:1.55;color:#FAF8F4;max-width:880px;}
+.tdiv{display:flex;align-items:center;gap:1rem;margin:2rem 0 2.5rem;}
+.tdiv::before,.tdiv::after{content:'';flex:1;max-width:48px;height:1px;background:var(--bg);}
+.tdiv span{color:var(--a);font-size:.7rem;}
+.ts{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--a);}
+#contact{border-top:1px solid var(--b);}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-top:4rem;align-items:start;}
+.cd{display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:2rem;}
+.ci{width:44px;height:44px;flex-shrink:0;border:1px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.cl{font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:.25rem;}
+.cv{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:#FAF8F4;text-decoration:none;transition:color .25s;}
+.cv:hover{color:var(--a);}
+.cbox{border:1px solid var(--bg);padding:3.25rem;background:rgba(255,255,255,.015);position:relative;}
+.cbox::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--a),transparent);}
+.fg{margin-bottom:1.6rem;}
+.fl{font-size:.56rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--off);display:block;margin-bottom:.6rem;}
+.fi{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--b);color:#FAF8F4;font-family:'Syne',sans-serif;font-size:.88rem;padding:.95rem 1rem;outline:none;transition:border-color .3s;}
+.fi:focus{border-color:var(--a);}
+.fi::placeholder{color:rgba(250,248,244,.18);}
+footer{padding:2.5rem 3.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--b);}
+.fbr{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;letter-spacing:.1em;color:#FAF8F4;}
+.fbr span{color:var(--a);}
+.fc{font-size:.62rem;color:var(--off);}
+#btt{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--a);background:none;border:none;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s;}
+#btt:hover{opacity:.65;}
+.r{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;}
+.r.v{opacity:1;transform:none;}
+.d1{transition-delay:.12s;}.d2{transition-delay:.24s;}.d3{transition-delay:.36s;}.d4{transition-delay:.48s;}
+@media(max-width:1000px){
+  #hero{grid-template-columns:1fr;height:auto;}
+  .hr{display:none;}
+  .hl{padding:9rem 2rem 5rem;}
+  .nl{display:none;}.hmb{display:block;}
+  .bento .s4,.bento .s5,.bento .s6,.bento .s7,.bento .s3{grid-column:span 12;}
+  .steps,.cg{grid-template-columns:1fr;}
+  .li{grid-template-columns:1fr;gap:.4rem;}
+  nav,.sec,footer{padding-left:1.5rem;padding-right:1.5rem;}
+}
+</style>
+</head>
+<body>
+<div class="glw" id="glw"></div>
+<nav id="nav">
+  <div class="logo">Hartwell <span>&</span> Co</div>
+  <div class="nl">
+    <a href="#properties">Properties</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Enquire</a>
+  </div>
+  <a href="#contact" class="btn"><span>Private Consultation</span></a>
+  <button class="hmb" onclick="document.getElementById('mob').classList.add('on')">Menu</button>
+</nav>
+<div class="mob" id="mob">
+  <button class="mcl" onclick="document.getElementById('mob').classList.remove('on')">✕</button>
+  <a href="#properties" onclick="document.getElementById('mob').classList.remove('on')">Properties</a>
+  <a href="#services" onclick="document.getElementById('mob').classList.remove('on')">Services</a>
+  <a href="#process" onclick="document.getElementById('mob').classList.remove('on')">Process</a>
+  <a href="#contact" onclick="document.getElementById('mob').classList.remove('on')">Enquire</a>
+  <a href="#contact" class="btn f" onclick="document.getElementById('mob').classList.remove('on')"><span>Private Consultation</span></a>
+</div>
+<section id="hero">
+  <div class="hl">
+    <div class="tag">Prime Central London · Est. 1997</div>
+    <h1>Property of<br><em>Exceptional</em><br>Distinction</h1>
+    <p class="sub">Hartwell & Co represents the most distinguished residential properties in Prime Central London. Trusted by discerning buyers and vendors for 25 years.</p>
+    <div class="ctas">
+      <a href="#properties" class="btn f"><span>View Properties</span></a>
+      <a href="#contact" class="btn"><span>Private Consultation</span></a>
+    </div>
+    <div class="hdiv"><div class="hdl"></div><div class="hdt">Mayfair · Chelsea · Belgravia · Kensington</div><div class="hdl"></div></div>
+  </div>
+  <div class="hr">
+    <div class="hr-bg"></div>
+    <div class="hr-grid"></div>
+    <div class="pcard">
+      <div class="pl">Featured Residence</div>
+      <div class="pp">£3.85M</div>
+      <div class="pa">Chester Square, Belgravia SW1W</div>
+      <div class="pr"></div>
+      <div class="ps">5 Bedrooms &nbsp;·&nbsp; 4 Bathrooms<br>4,200 sq ft &nbsp;·&nbsp; Private Terrace<br>Double Garage &nbsp;·&nbsp; Grade II Listed<br><br><span style="color:var(--a);">Available for immediate viewing</span></div>
+    </div>
+  </div>
+</section>
+<section class="sec sep" id="properties">
+  <div class="sl r">Current Listings</div>
+  <h2 class="r d1">Featured <em>Residences</em></h2>
+  <div class="lst r d2">
+    <div class="li"><div><div class="ls">For Sale</div><div class="la">Chester Square Townhouse</div><div class="larea">Belgravia, London SW1W</div></div><div class="ld"><strong>5</strong>Bedrooms</div><div class="ld"><strong>4,200 sq ft</strong>Floor Area</div><div class="ld"><strong>SW1W</strong>Postcode</div><div class="lp">£3,850,000</div></div>
+    <div class="li"><div><div class="ls">For Sale</div><div class="la">Sloane Avenue Apartment</div><div class="larea">Chelsea, London SW3</div></div><div class="ld"><strong>3</strong>Bedrooms</div><div class="ld"><strong>1,850 sq ft</strong>Floor Area</div><div class="ld"><strong>SW3</strong>Postcode</div><div class="lp">£2,100,000</div></div>
+    <div class="li"><div><div class="ls">New Instruction</div><div class="la">Pembroke Gardens Villa</div><div class="larea">Kensington, London W8</div></div><div class="ld"><strong>6</strong>Bedrooms</div><div class="ld"><strong>5,600 sq ft</strong>Floor Area</div><div class="ld"><strong>W8</strong>Postcode</div><div class="lp">£5,500,000</div></div>
+    <div class="li"><div><div class="ls">Off Market</div><div class="la">Park Lane Lateral Apartment</div><div class="larea">Mayfair, London W1K</div></div><div class="ld"><strong>4</strong>Bedrooms</div><div class="ld"><strong>3,100 sq ft</strong>Floor Area</div><div class="ld"><strong>W1K</strong>Postcode</div><div class="lp">£8,200,000</div></div>
+  </div>
+  <div style="margin-top:1.75rem;text-align:right;"><a href="#contact" class="btn"><span>Enquire About All Listings →</span></a></div>
+</section>
+<section class="sec sep" id="services">
+  <div class="sl r">How We Serve You</div>
+  <h2 class="r d1">A Truly <em>Personal</em><br>Service</h2>
+  <div class="bento">
+    <div class="bc s4 r d1"><div class="brom">I</div><div class="bt">Discreet Sales</div><div class="bb">Many of our finest properties never reach public listings. We match motivated vendors with pre-qualified buyers privately, preserving complete confidentiality from start to completion.</div></div>
+    <div class="bc s4 r d2"><div class="brom">II</div><div class="bt">Buying Agency</div><div class="bb">We search the entire market — including properties never publicly listed — negotiate exclusively on your behalf, and manage every detail through to seamless completion.</div></div>
+    <div class="bc s4 r d3"><div class="brom">III</div><div class="bt">Lettings & Management</div><div class="bb">Premium lettings management for Prime Central London properties with a concierge-level service for landlords and tenants of discernment.</div></div>
+    <div class="bc s7 r d2" style="background:rgba(201,168,76,.1);border-color:var(--bg);">
+      <div style="font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:.7rem;">Off-Market Advantage</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:300;color:#FAF8F4;line-height:1.35;margin-bottom:1.5rem;">The finest homes in London never reach the open market. We give you access to them.</div>
+      <a href="#contact" class="btn f"><span>Request Off-Market List</span></a>
+    </div>
+    <div class="bc s5 r d3">
+      <div style="font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:.7rem;">Track Record</div>
+      <div class="bnum">£2.4B</div>
+      <div class="bb">Total value of properties transacted since 1997. Over 600 successful completions across Prime Central London.</div>
+    </div>
+  </div>
+</section>
+<section class="sec sep" id="process">
+  <div class="sl r">The Process</div>
+  <h2 class="r d1">Refined From<br><em>First Contact</em></h2>
+  <div class="steps">
+    <div class="st r d1"><div class="si">Stage I</div><div class="sti">Private Consultation</div><div class="stb">A private meeting to understand your requirements — budget, location, lifestyle, and timeline. Completely confidential. No obligation whatsoever.</div></div>
+    <div class="st r d2"><div class="si">Stage II</div><div class="sti">Curated Selection</div><div class="stb">We present a personally curated selection of properties matching your precise criteria — including off-market residences available only through our established network.</div></div>
+    <div class="st r d3"><div class="si">Stage III</div><div class="sti">Negotiation & Completion</div><div class="stb">We negotiate with absolute discretion and expertise on your behalf. Our team then manages every stage through to seamless completion, protecting your interests throughout.</div></div>
+  </div>
+</section>
+<section class="sec" id="testimonial">
+  <div class="r" style="max-width:920px;margin:0 auto;">
+    <div class="sl">Client Words</div>
+    <div class="tdiv"><span>◆</span></div>
+    <p class="tq">"Hartwell & Co found us an extraordinary home in Chelsea that never reached the open market. Their discretion, depth of knowledge, and personal attention throughout were quite simply without equal. We would not consider using another agent."</p>
+    <div class="ts">Sir James & Lady Ashford — Mayfair, London & Oxfordshire · Acquired 2025</div>
+  </div>
+</section>
+<section class="sec" id="contact">
+  <div class="sl r">Begin Your Search</div>
+  <h2 class="r d1">A Conversation<br>Costs <em>Nothing</em></h2>
+  <div class="cg">
+    <div>
+      <p class="r" style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;line-height:1.95;color:var(--off);margin-bottom:3rem;">Whether you are seeking to sell a distinguished property or searching for a home of exceptional character, our specialists are ready to provide the personal guidance that Prime London demands.</p>
+      <div class="cd r d1"><div class="ci">📱</div><div><div class="cl">WhatsApp & Phone</div><a href="tel:+447737124388" class="cv">+44 7737 124388</a></div></div>
+      <div class="cd r d2"><div class="ci">✉️</div><div><div class="cl">Email</div><a href="mailto:will.zovante@proton.me" class="cv">will.zovante@proton.me</a></div></div>
+      <div class="cd r d3"><div class="ci">🕐</div><div><div class="cl">Availability</div><div class="cv" style="font-size:.9rem;font-family:'Syne',sans-serif;">Mon–Sat · 9am–7pm</div></div></div>
+    </div>
+    <div class="cbox r d2">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;color:#FAF8F4;margin-bottom:2.25rem;">Request a Private Consultation</div>
+      <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"/></div>
+      <div class="fg"><label class="fl">Budget Range</label><input class="fi" type="text" placeholder="e.g. £2M – £4M"/></div>
+      <div class="fg"><label class="fl">Phone Number</label><input class="fi" type="tel" placeholder="+44 7700 000000"/></div>
+      <a href="tel:+447737124388" class="btn f" style="display:block;text-align:center;margin-top:.5rem;"><span>Begin Enquiry →</span></a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="fbr">Hartwell <span>&</span> Co</div>
+  <div class="fc">© 2026 Hartwell & Co Ltd · Member of The Property Ombudsman · Prime Central London</div>
+  <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to Top</button>
+</footer>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('up',scrollY>50));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v');}),{threshold:.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/innerWidth*100).toFixed(1),y=(e.clientY/innerHeight*100).toFixed(1);
+  document.getElementById('glw').style.background=`radial-gradient(ellipse 50% 42% at ${x}% ${y}%,rgba(201,168,76,.06),transparent 70%)`;
+});
+document.querySelectorAll('.btn').forEach(b=>{
+  b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translateY(-1px) translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px)`;});
+  b.addEventListener('mouseleave',()=>b.style.transform='');
+});
+</script>
+</body>
+</html>
