@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Solaris — UK Solar Panel Specialists</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Syne',sans-serif;background:#000;color:#FAFAF8;overflow-x:hidden;}
+:root{--a:#E8851A;--a2:rgba(232,133,26,0.15);--off:rgba(250,250,248,0.55);--b:rgba(255,255,255,0.08);--bg:rgba(232,133,26,0.22);}
+
+/* GRAIN */
+body::after{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:.4s;}
+nav.up{background:rgba(0,0,0,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--b);}
+.logo{font-size:1rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;}
+.logo span{color:var(--a);}
+.nl{display:flex;gap:2.5rem;}
+.nl a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--off);text-decoration:none;transition:color .2s;}
+.nl a:hover{color:#fff;}
+.btn{display:inline-flex;align-items:center;gap:.4em;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:.7rem 1.6rem;border:1px solid var(--bg);color:var(--a);background:var(--a2);transition:.25s;cursor:pointer;outline:none;}
+.btn:hover{background:var(--a);color:#000;transform:translateY(-1px);}
+.btn span{display:inline-block;transition:transform .2s;}
+.btn:hover span{transform:translateX(2px);}
+.btn.f{background:var(--a);color:#000;border-color:var(--a);}
+.btn.f:hover{background:#c97015;}
+.hmb{display:none;background:none;border:1px solid var(--bg);color:var(--a);padding:.5rem .9rem;font-family:'Syne',sans-serif;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;}
+
+/* MOBILE OVERLAY */
+.mob{display:none;position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+.mob.on{display:flex;}
+.mob a{font-size:1.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-decoration:none;transition:color .2s;}
+.mob a:hover{color:var(--a);}
+.mcl{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--off);font-size:1.4rem;cursor:pointer;}
+
+/* GLOW BG */
+.glw{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 50% 20%,rgba(232,133,26,.08),transparent 70%);transition:background 2s;}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 3rem 5rem;position:relative;z-index:1;}
+.tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--a);margin-bottom:2rem;}
+.tag::before{content:'';width:22px;height:1px;background:var(--a);}
+h1{font-size:clamp(3.2rem,8vw,7rem);font-weight:800;line-height:.92;letter-spacing:-.04em;text-transform:uppercase;max-width:900px;}
+h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;text-transform:none;color:var(--a);}
+.sub{font-size:1rem;line-height:1.8;color:var(--off);max-width:480px;margin-top:2rem;}
+.ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;}
+.metrics{display:flex;gap:3rem;flex-wrap:wrap;margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--b);}
+.mn{font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1;}
+.mn em{color:var(--a);font-style:normal;}
+.ml{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--off);margin-top:.25rem;}
+
+/* SECTION BASE */
+.sec{padding:7rem 3rem;position:relative;z-index:1;}
+.sep{border-top:1px solid var(--b);}
+.sl{font-size:.6rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--a);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;}
+.sl::before{content:'';width:18px;height:1px;background:var(--a);}
+h2{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;line-height:1;}
+h2 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;text-transform:none;color:var(--a);}
+
+/* BENTO */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:3.5rem;}
+.bc{background:rgba(255,255,255,.022);border:1px solid var(--b);backdrop-filter:blur(20px);padding:2.5rem;position:relative;overflow:hidden;transition:border-color .3s,background .3s;}
+.bc::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(232,133,26,.07),transparent 70%);opacity:0;transition:opacity .4s;}
+.bc:hover{border-color:var(--bg);background:rgba(255,255,255,.04);}
+.bc:hover::before{opacity:1;}
+.s5{grid-column:span 5;}.s7{grid-column:span 7;}.s4{grid-column:span 4;}.s6{grid-column:span 6;}.s3{grid-column:span 3;}.s8{grid-column:span 8;}
+.bn{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--a);margin-bottom:1.25rem;}
+.bi{font-size:1.8rem;margin-bottom:1.25rem;display:block;}
+.bt{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:.6rem;}
+.bb{font-size:.84rem;line-height:1.75;color:var(--off);}
+.bnum{font-size:clamp(2.8rem,4.5vw,4.5rem);font-weight:800;letter-spacing:-.04em;color:var(--a);line-height:1;margin-bottom:.4rem;}
+.bglow{position:absolute;bottom:-50px;right:-50px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(232,133,26,.12),transparent 70%);pointer-events:none;}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b);margin-top:3.5rem;}
+.st{background:#000;padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background .25s;}
+.st::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a),transparent);transform:scaleX(0);transition:transform .4s;}
+.st:hover{background:rgba(255,255,255,.02);}
+.st:hover::after{transform:scaleX(1);}
+.si{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--off);margin-bottom:1.5rem;}
+.sti{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:.6rem;}
+.stb{font-size:.84rem;line-height:1.75;color:var(--off);}
+
+/* TESTIMONIAL */
+#testimonial{background:rgba(232,133,26,.03);border-top:1px solid var(--b);border-bottom:1px solid var(--b);}
+.tq{font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,3vw,2.4rem);font-weight:400;font-style:italic;line-height:1.5;color:#fff;max-width:850px;}
+.ts{font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-top:2rem;}
+
+/* CONTACT */
+#contact{border-top:1px solid var(--b);}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3.5rem;align-items:start;}
+.cd{display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:1.75rem;}
+.ci{width:44px;height:44px;flex-shrink:0;border:1px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.cl{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--a);margin-bottom:.25rem;}
+.cv{font-size:.95rem;font-weight:500;color:#fff;text-decoration:none;transition:color .2s;}
+.cv:hover{color:var(--a);}
+.cbox{border:1px solid var(--bg);padding:2.75rem;background:rgba(255,255,255,.02);position:relative;}
+.cbox::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--a),transparent);}
+.fg{margin-bottom:1.4rem;}
+.fl{font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--off);display:block;margin-bottom:.55rem;}
+.fi{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--b);color:#fff;font-family:'Syne',sans-serif;font-size:.88rem;padding:.85rem 1rem;outline:none;transition:border-color .2s;}
+.fi:focus{border-color:var(--a);}
+.fi::placeholder{color:rgba(250,250,248,.2);}
+
+/* FOOTER */
+footer{padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--b);}
+.fl2{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;}
+.fl2 span{color:var(--a);}
+.fc{font-size:.65rem;color:var(--off);}
+#btt{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--a);background:none;border:none;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s;}
+#btt:hover{opacity:.65;}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.r.v{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+@media(max-width:900px){
+  .nl{display:none;}.hmb{display:block;}
+  .bento .s5,.bento .s7,.bento .s4,.bento .s6,.bento .s3,.bento .s8{grid-column:span 12;}
+  .steps,.cg{grid-template-columns:1fr;}
+  nav,#hero,.sec,footer{padding-left:1.5rem;padding-right:1.5rem;}
+  #hero{padding-top:7rem;}
+  .metrics{gap:1.5rem;}
+}
+</style>
+</head>
+<body>
+<div class="glw" id="glw"></div>
+
+<nav id="nav">
+  <div class="logo">Sol<span>aris</span></div>
+  <div class="nl">
+    <a href="#why">Why Solar</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="btn f"><span>Free Survey</span></a>
+  <button class="hmb" onclick="document.getElementById('mob').classList.add('on')">Menu</button>
+</nav>
+
+<div class="mob" id="mob">
+  <button class="mcl" onclick="document.getElementById('mob').classList.remove('on')">✕</button>
+  <a href="#why" onclick="document.getElementById('mob').classList.remove('on')">Why Solar</a>
+  <a href="#services" onclick="document.getElementById('mob').classList.remove('on')">Services</a>
+  <a href="#process" onclick="document.getElementById('mob').classList.remove('on')">Process</a>
+  <a href="#contact" onclick="document.getElementById('mob').classList.remove('on')">Contact</a>
+  <a href="#contact" class="btn f" onclick="document.getElementById('mob').classList.remove('on')"><span>Free Survey</span></a>
+</div>
+
+<section id="hero">
+  <div class="tag">MCS Certified · UK Solar Specialists</div>
+  <h1>The Sun Is<br><em>Paying Your Bills.</em><br>You Just Need<br>To Harness It.</h1>
+  <p class="sub">Solaris designs and installs premium solar systems for UK homeowners who refuse to overpay for energy. Cut bills by up to 70%. Start day one.</p>
+  <div class="ctas">
+    <a href="#contact" class="btn f"><span>Book Free Survey</span></a>
+    <a href="#why" class="btn"><span>See Your Savings</span></a>
+  </div>
+  <div class="metrics">
+    <div><div class="mn">£1,200<em>+</em></div><div class="ml">Avg. Annual Saving</div></div>
+    <div><div class="mn">70<em>%</em></div><div class="ml">Bill Reduction</div></div>
+    <div><div class="mn">2,400<em>+</em></div><div class="ml">UK Homes Powered</div></div>
+    <div><div class="mn">25<em>yr</em></div><div class="ml">Panel Guarantee</div></div>
+  </div>
+</section>
+
+<section class="sec sep" id="why">
+  <div class="sl r">Why Solaris</div>
+  <h2 class="r d1">Your Home.<br><em>Your Energy.</em></h2>
+  <div class="bento">
+    <div class="bc s5 r d1">
+      <span class="bi">☀️</span>
+      <div class="bt">Generate Free Power Daily</div>
+      <div class="bb">Your panels produce clean electricity from the moment the sun rises. No meter watching, no supplier markups — just free energy, every single day.</div>
+      <div class="bglow"></div>
+    </div>
+    <div class="bc s7 r d2" style="display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;">
+      <div><div class="bnum">£130</div><div class="bb">average monthly saving<br>for a 3-bed UK home</div></div>
+      <div style="flex:1;min-width:180px;">
+        <div style="margin-bottom:1rem;">
+          <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--off);margin-bottom:.35rem;"><span>Before Solar</span><span>£185/mo</span></div>
+          <div style="height:5px;background:rgba(255,255,255,.08);border-radius:3px;"><div style="width:100%;height:100%;background:rgba(255,255,255,.15);border-radius:3px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--off);margin-bottom:.35rem;"><span>After Solar</span><span>£55/mo</span></div>
+          <div style="height:5px;background:rgba(255,255,255,.08);border-radius:3px;"><div style="width:30%;height:100%;background:linear-gradient(90deg,var(--a),#c97015);border-radius:3px;"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="bc s4 r d2"><div class="bn">02</div><div class="bt">Battery Storage</div><div class="bb">Store surplus energy and use it at night or on cloudy days. True energy independence — not just a bill reduction.</div></div>
+    <div class="bc s4 r d3"><div class="bn">03</div><div class="bt">Smart Export Guarantee</div><div class="bb">Sell every unused kilowatt back to the National Grid. Your home becomes an asset, not a cost centre.</div></div>
+    <div class="bc s4 r d4"><div class="bn">04</div><div class="bt">0% APR Finance</div><div class="bb">No upfront cost required. Nothing to pay for 12 months. Going solar starts the day you decide.</div></div>
+  </div>
+</section>
+
+<section class="sec sep" id="services">
+  <div class="sl r">What We Install</div>
+  <h2 class="r d1">Complete Solar<br><em>Solutions</em></h2>
+  <div class="bento">
+    <div class="bc s6 r d1" style="min-height:260px;">
+      <div class="bn">Panel Systems</div>
+      <div class="bt" style="font-size:1.4rem;margin-top:auto;margin-bottom:.65rem;">Monocrystalline Panels</div>
+      <div class="bb">Premium tier-1 monocrystalline panels rated for UK weather. Higher output per square metre, engineered for British rooftops.</div>
+      <div style="margin-top:1.5rem;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--a);">From 4kWp systems →</div>
+    </div>
+    <div class="bc s3 r d2"><span class="bi">🔋</span><div class="bt">Battery Storage</div><div class="bb">Tesla Powerwall compatible. Store up to 13.5kWh.</div></div>
+    <div class="bc s3 r d3"><span class="bi">⚡</span><div class="bt">EV Charging</div><div class="bb">Combine solar with a home EV charger. Drive on sunshine.</div></div>
+    <div class="bc s3 r d2"><span class="bi">📊</span><div class="bt">Smart Monitoring</div><div class="bb">Real-time generation data in your pocket via dedicated app.</div></div>
+    <div class="bc s3 r d3"><span class="bi">🛡</span><div class="bt">25-Year Guarantee</div><div class="bb">All panels guaranteed 25 years. Inverters: 12 years.</div></div>
+    <div class="bc s6 r d4" style="background:var(--a2);border-color:var(--bg);">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:.8rem;">No Obligation</div>
+      <div style="font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:1.5rem;line-height:1.25;">Get a personalised<br>savings report — free.</div>
+      <a href="#contact" class="btn f"><span>Calculate My Savings</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sep" id="process">
+  <div class="sl r">The Process</div>
+  <h2 class="r d1">From Survey<br><em>To Savings</em></h2>
+  <div class="steps">
+    <div class="st r d1"><div class="si">Step 01</div><div class="sti">Free Home Survey</div><div class="stb">Our MCS-certified engineer visits your property, analyses your roof and usage, and produces a detailed savings forecast at no cost.</div></div>
+    <div class="st r d2"><div class="si">Step 02</div><div class="sti">Expert Installation</div><div class="stb">Our in-house team completes the full installation in a single day. No subcontractors. DNO registration and grid connection handled entirely by us.</div></div>
+    <div class="st r d3"><div class="si">Step 03</div><div class="sti">Immediate Savings</div><div class="stb">Your system goes live. Watch your bills fall in real time via the app. Export earnings begin immediately. Your payback period starts today.</div></div>
+  </div>
+</section>
+
+<section class="sec" id="testimonial">
+  <div class="r" style="max-width:860px;margin:0 auto;">
+    <div class="sl">Client Testimonial</div>
+    <p class="tq">"From survey to installation, Solaris were exceptional. Our bills went from £190 to £42 a month. The team were professional, fast, and the system has worked flawlessly. Genuinely life-changing."</p>
+    <div class="ts">James & Sarah Thornton — Sheffield, South Yorkshire · 4.9kWp System + Battery</div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="sl r">Get Started</div>
+  <h2 class="r d1">Book Your<br><em>Free Survey</em></h2>
+  <div class="cg">
+    <div>
+      <p class="r" style="font-size:.95rem;line-height:1.85;color:var(--off);margin-bottom:2.5rem;">Our team will call you within 24 hours to arrange a free, no-obligation home survey and savings report.</p>
+      <div class="cd r d1"><div class="ci">📱</div><div><div class="cl">WhatsApp & Phone</div><a href="tel:+447737124388" class="cv">+44 7737 124388</a></div></div>
+      <div class="cd r d2"><div class="ci">✉️</div><div><div class="cl">Email</div><a href="mailto:will.zovante@proton.me" class="cv">will.zovante@proton.me</a></div></div>
+      <div class="cd r d3"><div class="ci">🕐</div><div><div class="cl">Hours</div><div class="cv" style="font-size:.9rem;">Mon–Sat · 8am–6pm</div></div></div>
+    </div>
+    <div class="cbox r d2">
+      <div style="font-size:1.05rem;font-weight:700;letter-spacing:-.01em;color:#fff;margin-bottom:1.75rem;">Request a Free Survey</div>
+      <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="John Smith"/></div>
+      <div class="fg"><label class="fl">Postcode</label><input class="fi" type="text" placeholder="e.g. SW1A 1AA"/></div>
+      <div class="fg"><label class="fl">Phone Number</label><input class="fi" type="tel" placeholder="+44 7700 000000"/></div>
+      <a href="tel:+447737124388" class="btn f" style="display:block;text-align:center;margin-top:.5rem;"><span>Book My Free Survey →</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl2">Sol<span>aris</span></div>
+  <div class="fc">© 2026 Solaris Energy Ltd · MCS Certified · UK Solar Specialists</div>
+  <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to Top</button>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('up',scrollY>50));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v');}),{threshold:.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/innerWidth*100).toFixed(1),y=(e.clientY/innerHeight*100).toFixed(1);
+  document.getElementById('glw').style.background=`radial-gradient(ellipse 55% 45% at ${x}% ${y}%,rgba(232,133,26,.08),transparent 70%)`;
+});
+document.querySelectorAll('.btn').forEach(b=>{
+  b.addEventListener('mousemove',e=>{
+    const r=b.getBoundingClientRect();
+    b.style.transform=`translateY(-1px) translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px)`;
+  });
+  b.addEventListener('mouseleave',()=>b.style.transform='');
+});
+</script>
+</body>
+</html>
