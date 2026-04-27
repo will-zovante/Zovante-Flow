@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zovante Flow — Premium Websites for UK Businesses</title>
+<meta name="description" content="Zovante Flow builds premium websites for UK solar, construction and luxury businesses. From £500. Live in 48 hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0d0d0d;--bg2:#141414;--bg3:#1a1a1a;--bg4:#202020;
+  --accent:#e8ff00;--accent2:#d4ea00;
+  --purple:#9b5de5;--teal:#00f5d4;--coral:#ff6b6b;
+  --white:#f8f8f8;--gray:#888;--dgray:#333;
+  --border:rgba(255,255,255,0.07);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--white);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 48px;height:60px;display:flex;align-items:center;
+  justify-content:space-between;
+  background:rgba(13,13,13,0.9);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-mark{width:28px;height:28px;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono';font-size:10px;font-weight:400;color:#000;}
+.logo-name{font-size:15px;font-weight:600;letter-spacing:-.02em;color:var(--white);}
+.nav-links{display:flex;gap:28px;}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:13px;
+  font-weight:400;transition:.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-btn{background:var(--accent);color:#000;padding:8px 20px;
+  font-size:13px;font-weight:600;text-decoration:none;transition:.15s;
+  letter-spacing:.01em;}
+.nav-btn:hover{background:var(--accent2);}
+
+/* HERO */
+.hero{min-height:100vh;padding:140px 48px 100px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 70% 20%,rgba(155,93,229,.12) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%,rgba(0,245,212,.06) 0%,transparent 50%),
+    var(--bg);}
+.hero-eyebrow{font-family:'DM Mono';font-size:11px;color:var(--gray);
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;
+  opacity:0;animation:rise .5s .1s forwards;}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);}
+.hero-h1{font-family:'Bebas Neue';font-size:clamp(72px,10vw,148px);
+  line-height:.95;letter-spacing:.01em;color:var(--white);
+  margin-bottom:40px;opacity:0;animation:rise .7s .2s forwards;}
+.hero-h1 .y{color:var(--accent);}
+.hero-h1 .sm{font-size:.55em;color:var(--gray);display:block;
+  font-family:'Outfit';font-weight:300;letter-spacing:-.01em;
+  line-height:1.4;margin-top:8px;}
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;
+  gap:32px;flex-wrap:wrap;opacity:0;animation:rise .6s .4s forwards;}
+.hero-p{max-width:420px;font-size:15px;font-weight:300;
+  line-height:1.75;color:rgba(248,248,248,.6);}
+.hero-p strong{color:var(--white);font-weight:500;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-y{background:var(--accent);color:#000;padding:15px 32px;
+  font-size:13px;font-weight:700;text-decoration:none;
+  transition:.15s;letter-spacing:.03em;text-transform:uppercase;}
+.btn-y:hover{background:var(--accent2);}
+.btn-o{border:1px solid var(--dgray);color:var(--white);padding:15px 28px;
+  font-size:13px;font-weight:400;text-decoration:none;transition:.2s;}
+.btn-o:hover{border-color:var(--gray);}
+
+/* STRIP */
+.strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  overflow:hidden;padding:16px 0;}
+.strip-inner{display:flex;white-space:nowrap;animation:scroll 18s linear infinite;}
+.strip-item{font-family:'DM Mono';font-size:11px;color:var(--gray);
+  letter-spacing:.14em;text-transform:uppercase;padding:0 32px;
+  display:flex;align-items:center;gap:16px;}
+.strip-item .dot{width:3px;height:3px;background:var(--accent);border-radius:50%;}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* NUMBERS */
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.num-box{background:var(--bg);padding:40px 32px;}
+.num-val{font-family:'Bebas Neue';font-size:52px;color:var(--white);
+  line-height:1;margin-bottom:4px;}
+.num-val .u{color:var(--accent);font-size:.65em;}
+.num-lbl{font-family:'DM Mono';font-size:10px;color:var(--gray);
+  letter-spacing:.12em;text-transform:uppercase;}
+
+/* SERVICES */
+.section{padding:100px 48px;}
+.s-tag{font-family:'DM Mono';font-size:10px;color:var(--accent);
+  letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;}
+.s-h{font-family:'Bebas Neue';font-size:clamp(40px,5vw,72px);
+  color:var(--white);letter-spacing:.02em;line-height:1;margin-bottom:48px;}
+.s-h .g{color:var(--gray);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border);}
+.svc{background:var(--bg2);padding:40px 32px;transition:.2s;border-bottom:none;}
+.svc:hover{background:var(--bg3);}
+.svc-num{font-family:'DM Mono';font-size:11px;color:var(--dgray);
+  margin-bottom:20px;letter-spacing:.08em;}
+.svc-icon{font-size:28px;margin-bottom:16px;display:block;}
+.svc-name{font-size:18px;font-weight:600;color:var(--white);margin-bottom:10px;}
+.svc-line{width:20px;height:2px;background:var(--accent);margin-bottom:14px;
+  transition:.3s;}
+.svc:hover .svc-line{width:40px;}
+.svc-desc{font-size:13px;font-weight:300;color:var(--gray);line-height:1.7;}
+
+/* PRICING */
+.pricing-bg{background:var(--bg2);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border);margin-top:48px;}
+.plan{background:var(--bg);padding:40px 32px;position:relative;transition:.2s;}
+.plan.hot{background:var(--bg3);border:1px solid rgba(232,255,0,.2);}
+.plan-badge{position:absolute;top:0;right:0;
+  background:var(--accent);color:#000;
+  font-family:'DM Mono';font-size:9px;font-weight:400;
+  letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;}
+.plan-tier{font-family:'DM Mono';font-size:10px;color:var(--gray);
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px;}
+.plan-price{font-family:'Bebas Neue';font-size:56px;color:var(--white);
+  line-height:1;margin-bottom:2px;}
+.plan-price sub{font-size:.35em;color:var(--gray);
+  font-family:'Outfit';font-weight:300;}
+.plan-mo{font-family:'DM Mono';font-size:11px;color:var(--gray);margin-bottom:24px;}
+.plan-mo strong{color:var(--accent);}
+.plan-div{height:1px;background:var(--border);margin-bottom:20px;}
+.plan-list{list-style:none;display:grid;gap:8px;margin-bottom:20px;}
+.plan-list li{font-size:12px;font-weight:300;color:var(--gray);
+  display:flex;gap:8px;align-items:flex-start;line-height:1.5;}
+.plan-list li::before{content:'—';color:var(--accent);flex-shrink:0;}
+.plan-note{font-family:'DM Mono';font-size:9px;color:var(--dgray);
+  line-height:1.7;margin-bottom:20px;padding:10px;
+  background:rgba(255,255,255,.02);}
+.plan-btn{display:block;text-align:center;padding:13px;
+  font-size:12px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;transition:.2s;}
+.pb-y{background:var(--accent);color:#000;}
+.pb-y:hover{background:var(--accent2);}
+.pb-g{border:1px solid var(--dgray);color:var(--white);}
+.pb-g:hover{border-color:var(--gray);}
+
+/* TIMELINE */
+.tl{margin-top:48px;display:grid;gap:1px;background:var(--border);}
+.tl-row{background:var(--bg);padding:24px 32px;
+  display:grid;grid-template-columns:56px 1fr auto;
+  gap:20px;align-items:center;transition:.15s;}
+.tl-row:hover{background:var(--bg2);}
+.tl-n{font-family:'Bebas Neue';font-size:32px;color:var(--dgray);transition:.2s;}
+.tl-row:hover .tl-n{color:var(--accent);}
+.tl-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:3px;}
+.tl-sub{font-size:12px;font-weight:300;color:var(--gray);}
+.tl-time{font-family:'DM Mono';font-size:10px;color:var(--accent);
+  letter-spacing:.06em;white-space:nowrap;}
+
+/* TERMS */
+.terms-bg{background:var(--bg2);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:44px;}
+.t-block h3{font-size:13px;font-weight:600;color:var(--white);
+  margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em;
+  display:flex;align-items:center;gap:8px;}
+.t-block h3::before{content:'';width:12px;height:2px;
+  background:var(--accent);flex-shrink:0;}
+.t-block p,.t-block li{font-size:13px;font-weight:300;
+  color:var(--gray);line-height:1.8;margin-bottom:6px;}
+.t-block ul{list-style:none;}
+.t-block ul li::before{content:'→ ';color:var(--accent);}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;}
+.contact-left p{font-size:14px;font-weight:300;color:var(--gray);
+  line-height:1.8;margin-bottom:28px;}
+.channels{display:grid;gap:8px;}
+.ch{background:var(--bg2);border:1px solid var(--border);
+  padding:14px 18px;display:flex;align-items:center;gap:14px;
+  text-decoration:none;transition:.15s;}
+.ch:hover{border-color:var(--accent);}
+.ch-icon{font-size:16px;flex-shrink:0;}
+.ch-lbl{font-family:'DM Mono';font-size:9px;color:var(--gray);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px;}
+.ch-val{font-size:13px;font-weight:500;color:var(--white);}
+.form{display:grid;gap:0;}
+.fg{border-bottom:1px solid var(--border);padding:16px 0;transition:.15s;}
+.fg:focus-within{border-bottom-color:var(--accent);}
+.fg label{display:block;font-family:'DM Mono';font-size:9px;
+  color:var(--dgray);letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:6px;transition:.2s;}
+.fg:focus-within label{color:var(--accent);}
+.fg input,.fg textarea,.fg select{
+  width:100%;background:transparent;border:none;outline:none;
+  color:var(--white);font-family:'Outfit';font-size:14px;
+  font-weight:300;padding:0;}
+.fg select option{background:var(--bg2);}
+.fg textarea{min-height:65px;resize:none;}
+.sub-btn{margin-top:24px;width:100%;background:var(--accent);color:#000;
+  border:none;padding:16px;font-family:'Outfit';font-size:13px;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;transition:.15s;}
+.sub-btn:hover{background:var(--accent2);}
+.success-msg{display:none;text-align:center;padding:40px 20px;
+  background:var(--bg2);border:1px solid var(--border);}
+.success-icon{font-size:32px;margin-bottom:12px;}
+.success-title{font-size:16px;font-weight:600;color:var(--white);margin-bottom:6px;}
+.success-sub{font-size:13px;font-weight:300;color:var(--gray);}
+
+/* FOOTER */
+footer{padding:32px 48px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.fl{display:flex;align-items:center;gap:8px;}
+.fl-mark{width:22px;height:22px;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono';font-size:8px;color:#000;}
+.fl-name{font-size:13px;font-weight:600;color:var(--white);}
+.fc{font-family:'DM Mono';font-size:10px;color:var(--dgray);}
+.flinks{display:flex;gap:20px;}
+.flinks a{font-family:'DM Mono';font-size:10px;color:var(--dgray);
+  text-decoration:none;letter-spacing:.06em;transition:.15s;}
+.flinks a:hover{color:var(--gray);}
+
+/* STATUS */
+.status{background:rgba(232,255,0,.06);border-bottom:1px solid rgba(232,255,0,.12);
+  padding:8px 48px;display:flex;align-items:center;gap:8px;justify-content:center;}
+.status-dot{width:5px;height:5px;background:var(--accent);
+  border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.status-txt{font-family:'DM Mono';font-size:10px;
+  color:rgba(232,255,0,.7);letter-spacing:.08em;}
+
+/* ANIM */
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.r{opacity:0;transform:translateY(20px);
+  transition:opacity .6s ease,transform .6s ease;}
+.r.on{opacity:1;transform:none;}
+
+@media(max-width:880px){
+  nav,hero,.section,.pricing-bg,.terms-bg,footer,.status{padding-left:20px;padding-right:20px;}
+  .hero{padding-top:100px;padding-bottom:60px;}
+  .nav-links{display:none;}
+  .numbers{grid-template-columns:1fr 1fr;}
+  .services-grid,.plans{grid-template-columns:1fr;}
+  .terms-grid,.contact-grid{grid-template-columns:1fr;gap:36px;}
+  .tl-row{grid-template-columns:40px 1fr;}.tl-time{display:none;}
+  footer{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-mark">ZF</div>
+    <div class="logo-name">Zovante Flow</div>
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#process">Process</a>
+    <a href="#terms">Terms</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-btn">Get Started</a>
+</nav>
+
+<div class="status">
+  <div class="status-dot"></div>
+  <span class="status-txt">Accepting new clients · 48hr build · Text us: +44 7863 780301</span>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">UK Web Agency · Premium Websites</div>
+  <h1 class="hero-h1">
+    WEB<span class="y">SITES</span><br>
+    THAT<br>
+    <span style="color:var(--gray)">WIN</span>
+    <span class="sm">For UK solar, construction &amp; luxury businesses.<br>
+    Built fast. Hosted by us. No contracts.</span>
+  </h1>
+  <div class="hero-row">
+    <p class="hero-p">
+      Zovante Flow builds <strong>premium, conversion-focused websites</strong>
+      for UK tradespeople and property businesses.
+      <strong>From £500 setup.</strong> Preview in 48 hours.
+      Pay by bank transfer. No hidden fees.
+    </p>
+    <div class="hero-btns">
+      <a href="#pricing" class="btn-y">View Pricing</a>
+      <a href="#contact" class="btn-o">Get a Demo</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-inner" id="strip"></div>
+</div>
+
+<div class="numbers">
+  <div class="num-box r">
+    <div class="num-val">48<span class="u">HR</span></div>
+    <div class="num-lbl">Preview Turnaround</div>
+  </div>
+  <div class="num-box r">
+    <div class="num-val">3<span class="u">PKG</span></div>
+    <div class="num-lbl">Package Options</div>
+  </div>
+  <div class="num-box r">
+    <div class="num-val">0<span class="u">£</span></div>
+    <div class="num-lbl">Hidden Fees</div>
+  </div>
+  <div class="num-box r">
+    <div class="num-val">30<span class="u">DAY</span></div>
+    <div class="num-lbl">Cancel Anytime</div>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="s-tag">Who We Build For</div>
+  <div class="s-h">THREE NICHES.<br><span class="g">DONE RIGHT.</span></div>
+  <div class="services-grid r">
+    <div class="svc">
+      <div class="svc-num">01 ——</div>
+      <span class="svc-icon">☀️</span>
+      <div class="svc-name">Solar & Renewables</div>
+      <div class="svc-line"></div>
+      <div class="svc-desc">High-trust sites for UK solar installers. Built to turn Google searches into booked surveys. Google Reviews pull-through, local SEO, and mobile-first design.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">02 ——</div>
+      <span class="svc-icon">🏗️</span>
+      <div class="svc-name">Construction & Roofing</div>
+      <div class="svc-line"></div>
+      <div class="svc-desc">Bold, professional sites for UK builders and contractors. Project portfolios, quote forms, and trust sections that win commercial contracts.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">03 ——</div>
+      <span class="svc-icon">🏛️</span>
+      <div class="svc-name">Luxury & Property</div>
+      <div class="svc-line"></div>
+      <div class="svc-desc">Minimal, premium sites for architects, interior designers, and property developers. The kind of site that commands premium prices before a client calls.</div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-bg section" id="pricing">
+  <div class="s-tag">Investment</div>
+  <div class="s-h">TRANSPARENT<br><span class="g">PRICING.</span></div>
+  <p style="font-family:'DM Mono';font-size:11px;color:var(--gray);margin-top:-32px;margin-bottom:0">
+    Payment by UK bank transfer (BACS) only · 50% deposit · 50% on launch · No payment gateway fees
+  </p>
+  <div class="plans r">
+    <div class="plan">
+      <div class="plan-tier">Performance</div>
+      <div class="plan-price">£500<sub>setup</sub></div>
+      <div class="plan-mo">Then <strong>£49/month</strong></div>
+      <div class="plan-div"></div>
+      <ul class="plan-list">
+        <li>3-page website (Home, Services, Contact)</li>
+        <li>SSL certificate (HTTPS)</li>
+        <li>Mobile responsive design</li>
+        <li>Google Maps embed</li>
+        <li>Contact form with email notifications</li>
+        <li>Basic local SEO setup</li>
+        <li>Fast UK hosting</li>
+        <li>1 content update per month</li>
+      </ul>
+      <div class="plan-note">
+        Deposit £250 · Balance on launch £250<br>
+        Then £49/mo · Cancel 30 days notice
+      </div>
+      <a href="#contact" class="plan-btn pb-g">Get Started</a>
+    </div>
+    <div class="plan hot">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-tier">Luxury</div>
+      <div class="plan-price">£1,500<sub>setup</sub></div>
+      <div class="plan-mo">Then <strong>£99/month</strong></div>
+      <div class="plan-div"></div>
+      <ul class="plan-list">
+        <li>7-page premium website</li>
+        <li>SSL + security hardening</li>
+        <li>Mobile, tablet & desktop optimised</li>
+        <li>Google Maps + Reviews integration</li>
+        <li>Contact, quote & callback forms</li>
+        <li>Full local SEO setup</li>
+        <li>Fast UK hosting with CDN</li>
+        <li>Up to 5 content updates per month</li>
+        <li>Priority support — 24hr response</li>
+        <li>Monthly performance monitoring</li>
+      </ul>
+      <div class="plan-note">
+        Deposit £750 · Balance on launch £750<br>
+        Then £99/mo · Cancel 30 days notice<br>
+        Extra pages £150 each
+      </div>
+      <a href="#contact" class="plan-btn pb-y">Get Started →</a>
+    </div>
+    <div class="plan">
+      <div class="plan-tier">Flagship</div>
+      <div class="plan-price">£1,000<sub>setup</sub></div>
+      <div class="plan-mo">Then <strong>£79/month</strong></div>
+      <div class="plan-div"></div>
+      <ul class="plan-list">
+        <li>5-page website</li>
+        <li>SSL certificate</li>
+        <li>Mobile & tablet optimised</li>
+        <li>Google Reviews display section</li>
+        <li>Contact form + quote request</li>
+        <li>Local SEO setup</li>
+        <li>Fast UK hosting</li>
+        <li>Up to 3 content updates per month</li>
+        <li>Monthly uptime monitoring</li>
+      </ul>
+      <div class="plan-note">
+        Deposit £500 · Balance on launch £500<br>
+        Then £79/mo · Cancel 30 days notice<br>
+        Extra pages £150 each
+      </div>
+      <a href="#contact" class="plan-btn pb-g">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="s-tag">Build Timeline</div>
+  <div class="s-h">WHAT HAPPENS<br><span class="g">AFTER YOU PAY.</span></div>
+  <div class="tl r">
+    <div class="tl-row">
+      <div class="tl-n">01</div>
+      <div><div class="tl-title">Deposit received — build starts</div>
+      <div class="tl-sub">Confirmation sent by SMS immediately.</div></div>
+      <div class="tl-time">Day 0</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-n">02</div>
+      <div><div class="tl-title">We collect your details by SMS</div>
+      <div class="tl-sub">Business name, services, contact info, coverage area. Quick text conversation.</div></div>
+      <div class="tl-time">Day 0–1</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-n">03</div>
+      <div><div class="tl-title">Preview link sent</div>
+      <div class="tl-sub">Your personalised site at a live preview URL. Request any changes.</div></div>
+      <div class="tl-time">Within 48hrs</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-n">04</div>
+      <div><div class="tl-title">Balance paid on approval</div>
+      <div class="tl-sub">Happy with preview? Pay remaining 50% by bank transfer.</div></div>
+      <div class="tl-time">Day 2–5</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-n">05</div>
+      <div><div class="tl-title">Domain connected — site goes live</div>
+      <div class="tl-sub">Your domain connected (or free subdomain). SSL on. Fully live.</div></div>
+      <div class="tl-time">Day 3–7</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-n">06</div>
+      <div><div class="tl-title">Monthly retainer begins</div>
+      <div class="tl-sub">Hosting, security, and monthly updates. First invoice 30 days after launch.</div></div>
+      <div class="tl-time">Month 2+</div>
+    </div>
+  </div>
+</section>
+
+<section class="terms-bg section" id="terms">
+  <div class="s-tag">Terms of Service</div>
+  <div class="s-h">CLEAR TERMS.<br><span class="g">NO SMALL PRINT.</span></div>
+  <div class="terms-grid r">
+    <div class="t-block">
+      <h3>What We Deliver</h3>
+      <p>Zovante Flow builds and delivers your website as described in the chosen package. All sites include SSL, mobile responsiveness, a contact form, and are hosted on UK infrastructure.</p>
+      <p>Content updates are limited to the number in your package per calendar month. Additional pages beyond your limit are quoted at £150 each. We do not provide paid advertising or social media management.</p>
+    </div>
+    <div class="t-block">
+      <h3>Payment Terms</h3>
+      <ul>
+        <li>50% deposit due before build begins</li>
+        <li>50% balance due on launch approval</li>
+        <li>UK bank transfer (BACS) only — no cards</li>
+        <li>Monthly retainer invoiced 30 days after launch</li>
+        <li>Invoices due within 7 days of issue</li>
+      </ul>
+    </div>
+    <div class="t-block">
+      <h3>Cancellation</h3>
+      <p>Cancel your monthly retainer at any time with 30 days written notice by SMS or email. No penalty. Your site is taken offline at the end of the notice period.</p>
+      <p>Setup fee is non-refundable once build has started. To migrate your site to your own hosting, a £150 migration fee applies and we provide all files.</p>
+    </div>
+    <div class="t-block">
+      <h3>Hosting & Ownership</h3>
+      <p>Your site is hosted on Zovante Flow's infrastructure. While your retainer is active, your site stays live. Your business data is used only to build and maintain your site — never shared with third parties.</p>
+    </div>
+    <div class="t-block">
+      <h3>Our Commitment</h3>
+      <ul>
+        <li>99% uptime target for all hosted sites</li>
+        <li>Security updates applied automatically</li>
+        <li>Content updates actioned within 48 hours</li>
+        <li>Priority support replied within 24 hours</li>
+        <li>Monthly performance checks included</li>
+      </ul>
+    </div>
+    <div class="t-block">
+      <h3>Privacy (UK GDPR)</h3>
+      <p>We collect only what's needed to complete your project. No cookies, no tracking, no third-party sharing. You have the right to access, correct, or delete your data at any time.</p>
+      <p>Contact: will@zovanteflow.com · SMS: +44 7863 780301</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left r">
+      <div class="s-tag">Get Started</div>
+      <div class="s-h" style="margin-bottom:16px">READY TO<br><span class="g">GO LIVE?</span></div>
+      <p>Fill in the form or text us directly. We reply within 2 hours and have a preview ready within 48 hours. No meetings. No lengthy process.</p>
+      <div class="channels">
+        <a href="sms:+447863780301" class="ch">
+          <span class="ch-icon">💬</span>
+          <div><div class="ch-lbl">Text / SMS</div>
+          <div class="ch-val">+44 7863 780301</div></div>
+        </a>
+        <a href="mailto:will@zovanteflow.com" class="ch">
+          <span class="ch-icon">✉️</span>
+          <div><div class="ch-lbl">Email</div>
+          <div class="ch-val">will@zovanteflow.com</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="r">
+      <form id="cForm" onsubmit="doSubmit(event)">
+        <div class="fg"><label>Your Name</label>
+          <input type="text" id="fn" placeholder="James Thornton" required></div>
+        <div class="fg"><label>Business Name</label>
+          <input type="text" id="fb" placeholder="Apex Solar London" required></div>
+        <div class="fg"><label>Phone / SMS</label>
+          <input type="tel" id="fp" placeholder="07700 900 000" required></div>
+        <div class="fg"><label>Email</label>
+          <input type="email" id="fe" placeholder="james@business.co.uk"></div>
+        <div class="fg"><label>Package</label>
+          <select id="fk">
+            <option>Performance — £500 setup + £49/mo</option>
+            <option selected>Luxury — £1,500 setup + £99/mo</option>
+            <option>Flagship — £1,000 setup + £79/mo</option>
+            <option>Not sure yet — advise me</option>
+          </select></div>
+        <div class="fg"><label>Industry</label>
+          <select id="fi">
+            <option>Solar / Renewable Energy</option>
+            <option>Construction / Building</option>
+            <option>Roofing</option>
+            <option>Luxury Property / Architecture</option>
+            <option>Interior Design</option>
+            <option>Other</option>
+          </select></div>
+        <div class="fg"><label>Message (optional)</label>
+          <textarea id="fm" placeholder="Tell us about your business..."></textarea></div>
+        <button type="submit" class="sub-btn" id="sb">
+          Send Enquiry — Reply Within 2 Hours
+        </button>
+      </form>
+      <div class="success-msg" id="ok">
+        <div class="success-icon">✓</div>
+        <div class="success-title">Enquiry received</div>
+        <div class="success-sub">We'll reply by SMS within 2 hours. — Will, Zovante</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">
+    <div class="fl-mark">ZF</div>
+    <div class="fl-name">Zovante Flow</div>
+  </div>
+  <div class="fc">© 2026 Zovante Flow · UK Web Agency · All rights reserved</div>
+  <div class="flinks">
+    <a href="#pricing">Pricing</a>
+    <a href="#terms">Terms</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const items = ['Solar Installers','Construction Firms','Roofing Contractors',
+  'Property Developers','Luxury Architects','Interior Designers',
+  'Premium Websites','48hr Turnaround','No Contracts','UK Hosting',
+  'SSL Included','Local SEO','Bank Transfer Only','No Hidden Fees'];
+const s = document.getElementById('strip');
+const html = [...items,...items].map(i=>
+  `<span class="strip-item">${i}<span class="dot"></span></span>`).join('');
+s.innerHTML = html + html;
+
+const obs = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('on');
+}),{threshold:.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+
+
+
+async function doSubmit(e){
+  e.preventDefault();
+  const btn = document.getElementById('sb');
+  btn.textContent = 'Sending...';btn.disabled = true;
+  const msg = `🌐 *NEW ENQUIRY*\n${'─'.repeat(26)}\n` +
+    `*Name:* ${document.getElementById('fn').value}\n` +
+    `*Business:* ${document.getElementById('fb').value}\n` +
+    `*Phone:* ${document.getElementById('fp').value}\n` +
+    `*Email:* ${document.getElementById('fe').value||'—'}\n` +
+    `*Package:* ${document.getElementById('fk').value}\n` +
+    `*Industry:* ${document.getElementById('fi').value}\n` +
+    `*Message:* ${document.getElementById('fm').value||'—'}\n` +
+    `${'─'.repeat(26)}\n_Reply by SMS: ${document.getElementById('fp').value}_`;
+  try{
+    await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:CHAT,text:msg,parse_mode:'Markdown'})});
+    document.getElementById('cForm').style.display='none';
+    document.getElementById('ok').style.display='block';
+  }catch{
+    btn.textContent='Send Enquiry — Reply Within 2 Hours';
+    btn.disabled=false;
+    alert('Error. Text us directly: +44 7863 780301');
+  }
+}
+</script>
+</body>
+</html>
